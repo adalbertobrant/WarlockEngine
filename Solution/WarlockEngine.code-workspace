@@ -3,5 +3,26 @@
 		{
 			"path": "..\\"
 		}
-	]
+	],
+	"settings":
+		{
+			// Language settings
+			"C_Cpp.default.cStandard": "c11",
+			"C_Cpp.default.cppStandard": "c++17",
+			"C_Cpp.default.defines":
+			[
+				"UNICODE",
+				"_UNICODE",
+				"WARLOCK_BUILD"
+			],
+
+			// Editor settings
+			"workbench.editor.showIcons": true,
+			"workbench.editor.showTabs": true,
+			"workbench.editor.highlightModifiedTabs": true,
+
+			// Project settings
+			"files.autoSave": "afterDelay",
+			"files.encoding": "utf8"
+		}
 }
