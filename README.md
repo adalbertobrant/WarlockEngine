@@ -1,2 +1,2 @@
-# WarlockEngine
-Repository for the Warlock® Application Engine
+# Warlock&reg; Application Framework
+Under development.
