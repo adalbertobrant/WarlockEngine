@@ -59,6 +59,40 @@ namespace Warlock
                 return Vector3<T>(x * Scalar, y * Scalar, z * Scalar);
             };
 
+            bool operator >(const Vector3<T> &Vector)
+            {
+                return (Magnitude() > Magnitude(Vector));
+            };
+
+            bool operator <(const Vector3<T> &Vector)
+            {
+                return (Magnitude() < Magnitude(Vector));
+            };
+
+            T operator [](int Index)
+            {
+                static_assert(Index >= 0, "Vector index must be zero or higher");
+
+                switch (Index)
+                {
+                    case 0:
+                        return x;
+                        break;
+
+                    case 1:
+                        return y;
+                        break;
+
+                    case 2:
+                        return z;
+                        break;
+
+                    default:
+                        return x;
+                        break;
+                };
+            };
+
             void operator +=(T Value)
             {
                 x += Value;
@@ -92,6 +126,16 @@ namespace Warlock
                 x *= Scalar;
                 y *= Scalar;
                 z *= Scalar;
+            };
+
+            bool operator >=(const Vector3<T> &Vector)
+            {
+                return (Magnitude() >= Magnitude(Vector));
+            };
+
+            bool operator <=(const Vector3<T> &Vector)
+            {
+                return (Magnitude() <= Magnitude(Vector));
             };
 
             bool operator ==(T Value)
