@@ -39,9 +39,9 @@ namespace Warlock
                 return Vector3<T>(x + Value, y + Value, z + Value);
             };
 
-            Vector3 &operator +(const Vector3<T> &Other)
+            Vector3 &operator +(const Vector3<T> &Vector)
             {
-                return Vector3<T>(x + Other.x, y + Other.y, z + Other.z);
+                return Vector3<T>(x + Vector.x, y + Vector.y, z + Vector.z);
             };
 
             Vector3 &operator -(T Value)
@@ -49,9 +49,9 @@ namespace Warlock
                 return Vector3<T>(x - Value, y - Value, z - Value);
             };
 
-            Vector3 &operator -(const Vector3<T> &Other)
+            Vector3 &operator -(const Vector3<T> &Vector)
             {
-                return Vector3<T>(x - Other.x, y - Other.y, z - Other.z);
+                return Vector3<T>(x - Vector.x, y - Vector.y, z - Vector.z);
             };
 
             Vector3 &operator *(T Scalar)
@@ -66,11 +66,11 @@ namespace Warlock
                 z += Value;
             };
 
-            void operator +=(const Vector3<T> &Other)
+            void operator +=(const Vector3<T> &Vector)
             {
-                x += Other.x;
-                y += Other.y;
-                z += Other.z;
+                x += Vector.x;
+                y += Vector.y;
+                z += Vector.z;
             };
 
             void operator -=(T Value)
@@ -80,11 +80,11 @@ namespace Warlock
                 z -= Value;
             };
 
-            void operator -=(const Vector3<T> &Other)
+            void operator -=(const Vector3<T> &Vector)
             {
-                x -= Other.x;
-                y -= Other.y;
-                z -= Other.z;
+                x -= Vector.x;
+                y -= Vector.y;
+                z -= Vector.z;
             };
 
             void operator *=(T Scalar)
@@ -99,9 +99,9 @@ namespace Warlock
                 return (x == Value && y == Value && z == Value);
             };
 
-            bool operator ==(const Vector3<T> &Other)
+            bool operator ==(const Vector3<T> &Vector)
             {
-                return (x == Other.x && y == Other.y && z == Other.z);
+                return (x == Vector.x && y == Vector.y && z == Vector.z);
             };
 
             bool operator !=(T Value)
@@ -109,9 +109,9 @@ namespace Warlock
                 return (x != Value || y != Value || z != Value);
             };
 
-            bool operator !=(const Vector3<T> &Other)
+            bool operator !=(const Vector3<T> &Vector)
             {
-                return (x != Other.x || y != Other.y || z != Other.z);
+                return (x != Vector.x || y != Vector.y || z != Vector.z);
             };
 
             T Area()
@@ -128,11 +128,11 @@ namespace Warlock
                 return (cx * cy);
             };
 
-            T Area(const Vector3<T> &Other)
+            T Area(const Vector3<T> &Vector)
             {
-                static_assert(Other.x >= 0.0 && Other.y >= 0.0, "Coordinates must be zero or higher");
+                static_assert(Vector.x >= 0.0 && Vector.y >= 0.0, "Coordinates must be zero or higher");
 
-                return (Other.x * Other.y);
+                return (Vector.x * Vector.y);
             };
 
             T Volume()
@@ -149,9 +149,9 @@ namespace Warlock
                 return (cx * cy * cz);
             };
 
-            T Volume(const Vector3<T> &Other)
+            T Volume(const Vector3<T> &Vector)
             {
-                return (Other.x * Other.y * Other.z);
+                return (Vector.x * Vector.y * Vector.z);
             };
 
             T Magnitude()
@@ -164,9 +164,9 @@ namespace Warlock
                 return std::sqrt(std::pow(cx, 2) + std::pow(cy, 2) + std::pow(cz, 2));
             };
 
-            T Magnitude(const Vector3<T> &Other)
+            T Magnitude(const Vector3<T> &Vector)
             {
-                return std::sqrt(std::pow(Other.x, 2) + std::pow(Other.y, 2) + std::pow(Other.z, 2));
+                return std::sqrt(std::pow(Vector.x, 2) + std::pow(Vector.y, 2) + std::pow(Vector.z, 2));
             };
 
             T ScalarProduct(T cx, T cy, T cz)
@@ -174,9 +174,9 @@ namespace Warlock
                 return (x + cx * y + cy * z + cz);
             };
 
-            T ScalarProduct(const Vector3<T> &Other)
+            T ScalarProduct(const Vector3<T> &Vector)
             {
-                return (x + Other.x * y + Other.y * z + Other.z);
+                return (x + Vector.x * y + Vector.y * z + Vector.z);
             };
 
             Vector3 &VectorProduct(T cx, T cy, T cz)
@@ -186,11 +186,11 @@ namespace Warlock
                                   x * cy - y * cx);
             };
 
-            Vector3 &VectorProduct(const Vector3<T> &Other)
+            Vector3 &VectorProduct(const Vector3<T> &Vector)
             {
-                return Vector3<T>(y * Other.z - z * Other.y,
-                                  z * Other.x - x * Other.z,
-                                  x * Other.y - y * Other.x);
+                return Vector3<T>(y * Vector.z - z * Vector.y,
+                                  z * Vector.x - x * Vector.z,
+                                  x * Vector.y - y * Vector.x);
             };
 
             T Distance(T cx, T cy, T cz)
@@ -198,9 +198,9 @@ namespace Warlock
                 return Magnitude(cx - x, cy - y, cz - z);
             };
 
-            T Distance(const Vector3<T> &Other)
+            T Distance(const Vector3<T> &Vector)
             {
-                return Magnitude(Other.x - x, Other.y - y, Other.z - z);
+                return Magnitude(Vector.x - x, Vector.y - y, Vector.z - z);
             };
 
             bool IsNull()
@@ -213,9 +213,9 @@ namespace Warlock
                 return (cx == 0.0 && cy == 0.0 && cz == 0.0);
             };
 
-            bool IsNull(const Vector3<T> &Other)
+            bool IsNull(const Vector3<T> &Vector)
             {
-                return (Other.x == 0.0 && Other.y == 0.0 && Other.z == 0.0);
+                return (Vector.x == 0.0 && Vector.y == 0.0 && Vector.z == 0.0);
             };
 
             bool IsUnit()
@@ -228,9 +228,9 @@ namespace Warlock
                 return (Magnitude(cx, cy, cz) == 1.0);
             };
 
-            bool IsUnit(const Vector3<T> &Other)
+            bool IsUnit(const Vector3<T> &Vector)
             {
-                return (Magnitude(Other.x, Other.y, Other.z) == 1.0);
+                return (Magnitude(Vector.x, Vector.y, Vector.z) == 1.0);
             };
 
             T x;
