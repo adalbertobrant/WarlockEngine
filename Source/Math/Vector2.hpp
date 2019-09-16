@@ -155,6 +155,16 @@ namespace Warlock
                 return (x + Other.x * y + Other.y);
             };
 
+            T Distance(T cx, T cy)
+            {
+                return Magnitude(cx - x, cy - y);
+            };
+
+            T Distance(const Vector2<T> &Other)
+            {
+                return Magnitude(Other.x - x, Other.y - y);
+            };
+
             bool IsNull()
             {
                 return (x == 0.0 && y == 0.0);
