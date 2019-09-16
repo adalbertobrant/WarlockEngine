@@ -28,13 +28,13 @@
 #define WARLOCK_COMPILER_STRING "Microsoft Visual C++"
 #define WARLOCK_COMPILER_VERSION_SHORT _MSC_VER
 #define WARLOCK_COMPILER_VERSION_FULL _MSC_FULL_VER
-#define WARLOCK_COMPILER_LANGUAGE_VERSION __cplusplus
+#define WARLOCK_COMPILER_LANGUAGE_VERSION _MSVC_LANG
 
 #if (WARLOCK_COMPILER_VERSION_SHORT < 1914)
 #error "This engine requires Microsoft Visual C++ 19.14 or higher"
 #endif
 
-#if (WARLOCK_COMPILER_LANGAUGE_VERSION < 201703L)
+#if (WARLOCK_COMPILER_LANGUAGE_VERSION < 201703L)
 #error "This engine requires a compiler with ISO/IEC 14882:2017 support"
 #endif
 
